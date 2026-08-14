@@ -1,467 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>AnifoxGo - Watch Anime Online Free</title>
+<title>AnifoxGo - Watch Anime Online Free</title>
 
-  <meta
-    name="description"
-    content="Watch latest anime online free on AnifoxGo. Explore trending, popular and latest anime collection."
-  >
+<meta name="description" content="Watch latest anime online free on AnifoxGo. Explore trending, popular and latest anime collection.">
 
-  <link rel="icon" href="favicon.png">
+<link rel="icon" href="favicon.png">
 
-  <!-- Google Fonts -->
-  <link
-    rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
-  >
-
-  <!-- Font Awesome -->
-  <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css"
-  >
-
-  <!-- Main CSS -->
-  <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <!-- =====================================================
-       NAVBAR
-  ====================================================== -->
+<header class="navbar" id="navbar">
+  <button class="nav-hamburger" id="atsHamburger"><i class="fas fa-bars"></i></button>
 
-  <header class="navbar" id="navbar">
+  <a href="https://katsuki6608.github.io/AnifoxGo/" class="nav-logo">
+    <span class="logo-txt">AnifoxGo</span>
+  </a>
 
-    <!-- Mobile Menu -->
-    <button
-      class="nav-hamburger"
-      id="atsHamburger"
-      type="button"
-      aria-label="Open menu"
-    >
-      <i class="fas fa-bars"></i>
-    </button>
+  <div class="nav-search" id="atsNavSearch">
+    <input type="text" placeholder="Search anime..." autocomplete="off">
+    <button class="nav-search-btn" id="atsNavSearchBtn"><i class="fas fa-search"></i></button>
+  </div>
 
-    <!-- Logo -->
-    <a
-      href="index.html"
-      class="nav-logo"
-      aria-label="AnifoxGo Home"
-    >
-      <span class="logo-txt">AnifoxGo</span>
-    </a>
+  <nav class="nav-links">
+    <a href="index.html" class="active">Home</a>
+    <a href="#">Trending</a>
+    <a href="#">Popular</a>
+    <a href="#">Upcoming</a>
+  </nav>
 
-    <!-- Search -->
-    <div class="nav-search" id="atsNavSearch">
+  <button class="nav-shuffle" id="atsShuffle"><i class="fas fa-random"></i></button>
 
-      <input
-        type="text"
-        placeholder="Search anime..."
-        autocomplete="off"
-        aria-label="Search anime"
-      >
+  <div class="nav-tabs">
+    <a class="nav-tab active" href="#"><i class="fas fa-fire"></i> Anime</a>
+    <a class="nav-tab" href="#"><i class="fas fa-film"></i> Movies</a>
+    <a class="nav-tab" href="#"><i class="fas fa-book"></i> Manga</a>
+  </div>
+</header>
 
-      <button
-        class="nav-search-btn"
-        id="atsNavSearchBtn"
-        type="button"
-        aria-label="Search"
-      >
-        <i class="fas fa-search"></i>
-      </button>
+<div class="drawer-backdrop" id="atsDrawerBackdrop"></div>
 
+<aside class="drawer" id="atsDrawer">
+  <h4>Browse</h4>
+  <a href="index.html">Home</a>
+  <a href="#">Trending</a>
+
+  <h4>Genres</h4>
+  <div id="atsDrawerGenres"></div>
+</aside>
+
+<div class="search-modal" id="atsSearchModal">
+  <div class="search-modal-inner">
+    <input type="text" id="atsSearchInput" placeholder="Type an anime title...">
+    <div class="search-results card-grid" id="atsSearchResults"></div>
+  </div>
+</div>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const animeId = params.get('ats_anime');
+
+if(animeId){
+  document.write(`
+    <main data-ats-page="detail" data-ats-id="${animeId}">
+      <div id="atsDetail" class="page-wrap"></div>
+    </main>
+  `);
+}else{
+  document.write(`
+    <main data-ats-page="home">
+
+    <section class="hero" id="atsHero"></section>
+
+    <div class="page-wrap">
+      <div class="main-grid">
+        <div class="main-col">
+
+          <section class="section">
+            <h2>Latest Updates</h2>
+            <div class="card-grid" id="atsLatestGrid"></div>
+          </section>
+
+          <section class="section">
+            <h2>Popular</h2>
+            <div class="card-grid" id="atsPopularGrid"></div>
+          </section>
+
+        </div>
+
+        <aside class="sidebar">
+          <div id="atsTop10"></div>
+          <div id="atsGenres"></div>
+        </aside>
+
+      </div>
     </div>
 
-    <!-- Desktop Navigation -->
-    <nav class="nav-links">
+    </main>
+  `);
+}
+</script>
 
-      <a href="index.html" class="active">
-        Home
-      </a>
+<footer class="site-footer">
 
-      <a href="#">
-        Trending
-      </a>
+  <div class="footer-inner">
 
-      <a href="#">
-        Popular
-      </a>
-
-      <a href="#">
-        Upcoming
-      </a>
-
-    </nav>
-
-    <!-- Shuffle -->
-    <button
-      class="nav-shuffle"
-      id="atsShuffle"
-      type="button"
-      aria-label="Random anime"
-    >
-      <i class="fas fa-random"></i>
-    </button>
-
-    <!-- Content Tabs -->
-    <div class="nav-tabs">
-
-      <a
-        class="nav-tab active"
-        href="#"
-      >
-        <i class="fas fa-fire"></i>
-        Anime
-      </a>
-
-      <a
-        class="nav-tab"
-        href="#"
-      >
-        <i class="fas fa-film"></i>
-        Movies
-      </a>
-
-      <a
-        class="nav-tab"
-        href="#"
-      >
-        <i class="fas fa-book"></i>
-        Manga
-      </a>
-
+    <div class="footer-col">
+      <div class="footer-brand">AnifoxGo</div>
+      <p class="footer-disclaimer">
+        This site is an anime catalog/database. Metadata is provided by AniList. We do not host any files.
+      </p>
     </div>
 
-  </header>
+    <div class="footer-col">
+      <h5>Browse</h5>
+      <a href="index.html">Home</a>
+      <a href="#">Trending</a>
+      <a href="#">Popular</a>
+      <a href="#">Upcoming</a>
+    </div>
 
-
-  <!-- =====================================================
-       MOBILE DRAWER
-  ====================================================== -->
-
-  <div
-    class="drawer-backdrop"
-    id="atsDrawerBackdrop"
-  ></div>
-
-  <aside
-    class="drawer"
-    id="atsDrawer"
-    aria-label="Mobile navigation"
-  >
-
-    <h4>Browse</h4>
-
-    <a href="index.html">
-      Home
-    </a>
-
-    <a href="#">
-      Trending
-    </a>
-
-    <a href="#">
-      Popular
-    </a>
-
-    <a href="#">
-      Upcoming
-    </a>
-
-
-    <h4>Genres</h4>
-
-    <div id="atsDrawerGenres"></div>
-
-  </aside>
-
-
-  <!-- =====================================================
-       SEARCH MODAL
-  ====================================================== -->
-
-  <div
-    class="search-modal"
-    id="atsSearchModal"
-  >
-
-    <div class="search-modal-inner">
-
-      <input
-        type="text"
-        id="atsSearchInput"
-        placeholder="Type an anime title..."
-        autocomplete="off"
-      >
-
-      <div
-        class="search-results card-grid"
-        id="atsSearchResults"
-      ></div>
-
+    <div class="footer-col">
+      <h5>Info</h5>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+      <a href="#">Privacy Policy</a>
     </div>
 
   </div>
 
-
-  <!-- =====================================================
-       MAIN CONTENT
-  ====================================================== -->
-
-  <main id="atsMain">
-
-    <!-- HOME PAGE -->
-
-    <div
-      id="atsHomePage"
-      data-ats-page="home"
-    >
-
-      <!-- Hero -->
-      <section
-        class="hero"
-        id="atsHero"
-      ></section>
-
-
-      <!-- Main Content -->
-      <div class="page-wrap">
-
-        <div class="main-grid">
-
-          <!-- Main Column -->
-          <div class="main-col">
-
-            <!-- Latest Updates -->
-            <section class="section">
-
-              <h2>
-                Latest Updates
-              </h2>
-
-              <div
-                class="card-grid"
-                id="atsLatestGrid"
-              ></div>
-
-            </section>
-
-
-            <!-- Popular -->
-            <section class="section">
-
-              <h2>
-                Popular
-              </h2>
-
-              <div
-                class="card-grid"
-                id="atsPopularGrid"
-              ></div>
-
-            </section>
-
-          </div>
-
-
-          <!-- Sidebar -->
-          <aside class="sidebar">
-
-            <!-- Top 10 -->
-            <div id="atsTop10"></div>
-
-            <!-- Genres -->
-            <div id="atsGenres"></div>
-
-          </aside>
-
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <!-- DETAIL PAGE -->
-
-    <div
-      id="atsDetailPage"
-      data-ats-page="detail"
-      hidden
-    >
-
-      <div
-        id="atsDetail"
-        class="page-wrap"
-      ></div>
-
-    </div>
-
-  </main>
-
-
-  <!-- =====================================================
-       FOOTER
-  ====================================================== -->
-
-  <footer class="site-footer">
-
-    <div class="footer-inner">
-
-
-      <!-- Footer Brand -->
-      <div class="footer-col">
-
-        <div class="footer-brand">
-          AnifoxGo
-        </div>
-
-        <p class="footer-disclaimer">
-          This site is an anime catalog/database.
-          Metadata is provided by AniList.
-          We do not host any files.
-        </p>
-
-      </div>
-
-
-      <!-- Browse -->
-      <div class="footer-col">
-
-        <h5>
-          Browse
-        </h5>
-
-        <a href="index.html">
-          Home
-        </a>
-
-        <a href="#">
-          Trending
-        </a>
-
-        <a href="#">
-          Popular
-        </a>
-
-        <a href="#">
-          Upcoming
-        </a>
-
-      </div>
-
-
-      <!-- Information -->
-      <div class="footer-col">
-
-        <h5>
-          Info
-        </h5>
-
-        <a href="#">
-          About
-        </a>
-
-        <a href="#">
-          Contact
-        </a>
-
-        <a href="#">
-          Privacy Policy
-        </a>
-
-      </div>
-
-    </div>
-
-
-    <!-- Copyright -->
-    <div class="footer-bottom">
-
-      © 2026 AnifoxGo.
-      All trademarks belong to their respective owners.
-
-    </div>
-
-  </footer>
-
-
-  <!-- =====================================================
-       ANIFOXGO CONFIGURATION
-  ====================================================== -->
-
-  <script>
-    window.ATS_CONFIG = {
-      siteName: 'AnifoxGo',
-      homeUrl: 'https://katsuki6608.github.io/AnifoxGo/',
-      anilistUrl: 'https://graphql.anilist.co',
-      perPage: 24
-    };
-  </script>
-
-
-  <!-- =====================================================
-       PAGE ROUTING
-  ====================================================== -->
-
-  <script>
-    (function () {
-
-      const params = new URLSearchParams(window.location.search);
-      const animeId = params.get('ats_anime');
-
-      const homePage = document.getElementById('atsHomePage');
-      const detailPage = document.getElementById('atsDetailPage');
-
-      if (!homePage || !detailPage) {
-        return;
-      }
-
-      /*
-       * If URL contains:
-       *
-       * ?ats_anime=123
-       *
-       * show anime detail page.
-       */
-
-      if (animeId) {
-
-        homePage.hidden = true;
-        detailPage.hidden = false;
-
-        detailPage.setAttribute(
-          'data-ats-id',
-          animeId
-        );
-
-      } else {
-
-        homePage.hidden = false;
-        detailPage.hidden = true;
-
-        detailPage.removeAttribute(
-          'data-ats-id'
-        );
-
-      }
-
-    })();
-  </script>
-
-
-  <!-- =====================================================
-       ANILIST APP
-  ====================================================== -->
-
-  <script src="assets/js/anilist-app.js"></script>
+  <div class="footer-bottom">
+    © 2026 AnifoxGo. All trademarks belong to their respective owners.
+  </div>
+
+</footer>
+
+<script>
+window.ATS_CONFIG={
+  siteName:'AnifoxGo',
+  homeUrl:'https://katsuki6608.github.io/AnifoxGo/',
+  anilistUrl:'https://graphql.anilist.co',
+  perPage:24
+};
+</script>
+
+<script src="assets/js/anilist-app.js"></script>
 
 </body>
-
 </html>

@@ -3,24 +3,41 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AnifoxGo — WordPress theme preview</title>
+
+<title>AnifoxGo - Watch Anime Online Free</title>
+
+<meta name="description" content="Watch latest anime online free on AnifoxGo. Explore trending, popular and latest anime collection.">
+
+<link rel="icon" href="favicon.png">
+
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
 <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 <header class="navbar" id="navbar">
-  <button class="nav-hamburger" id="atsHamburger" aria-label="Menu"><i class="fas fa-bars"></i></button>
-  <a href="#" class="nav-logo"><span class="logo-txt">AnifoxGo</span></a>
+  <button class="nav-hamburger" id="atsHamburger"><i class="fas fa-bars"></i></button>
+
+  <a href="https://katsuki6608.github.io/AnifoxGo/" class="nav-logo">
+    <span class="logo-txt">AnifoxGo</span>
+  </a>
+
   <div class="nav-search" id="atsNavSearch">
     <input type="text" placeholder="Search anime..." autocomplete="off">
-    <button class="nav-search-btn" id="atsNavSearchBtn" aria-label="Search"><i class="fas fa-search"></i></button>
+    <button class="nav-search-btn" id="atsNavSearchBtn"><i class="fas fa-search"></i></button>
   </div>
+
   <nav class="nav-links">
-    <a href="#" class="active">Home</a><a href="#">Trending</a><a href="#">Popular</a><a href="#">Upcoming</a>
+    <a href="index.html" class="active">Home</a>
+    <a href="#">Trending</a>
+    <a href="#">Popular</a>
+    <a href="#">Upcoming</a>
   </nav>
-  <button class="nav-shuffle" id="atsShuffle" title="Random anime"><i class="fas fa-random"></i></button>
+
+  <button class="nav-shuffle" id="atsShuffle"><i class="fas fa-random"></i></button>
+
   <div class="nav-tabs">
     <a class="nav-tab active" href="#"><i class="fas fa-fire"></i> Anime</a>
     <a class="nav-tab" href="#"><i class="fas fa-film"></i> Movies</a>
@@ -29,47 +46,130 @@
 </header>
 
 <div class="drawer-backdrop" id="atsDrawerBackdrop"></div>
+
 <aside class="drawer" id="atsDrawer">
-  <h4>Browse</h4><a href="#">Home</a><a href="#">Trending</a>
-  <h4>Genres</h4><div id="atsDrawerGenres"></div>
+  <h4>Browse</h4>
+  <a href="index.html">Home</a>
+  <a href="#">Trending</a>
+
+  <h4>Genres</h4>
+  <div id="atsDrawerGenres"></div>
 </aside>
 
-<div class="search-modal" id="atsSearchModal"><div class="search-modal-inner">
-  <input type="text" id="atsSearchInput" placeholder="Type an anime title...">
-  <div class="search-results card-grid" id="atsSearchResults"></div>
-</div></div>
+<div class="search-modal" id="atsSearchModal">
+  <div class="search-modal-inner">
+    <input type="text" id="atsSearchInput" placeholder="Type an anime title...">
+    <div class="search-results card-grid" id="atsSearchResults"></div>
+  </div>
+</div>
 
 <main data-ats-page="home">
-  <section class="hero" id="atsHero"><div class="section-loader"><i class="fas fa-spinner fa-spin"></i> Loading anime…</div></section>
-  <div class="page-wrap"><div class="main-grid">
-    <div class="main-col">
-      <section class="section">
-        <div class="section-head"><h2 class="section-title"><i class="fas fa-fire" style="color:var(--accent-2)"></i> Latest Updates</h2><a class="view-all" href="#">View All <i class="fas fa-chevron-right"></i></a></div>
-        <div class="card-grid" id="atsLatestGrid"><div class="section-loader"><i class="fas fa-spinner fa-spin"></i> Loading…</div></div>
-      </section>
-      <section class="section">
-        <div class="section-head"><h2 class="section-title"><i class="fas fa-star" style="color:var(--accent-2)"></i> Popular This Season</h2><a class="view-all" href="#">View All <i class="fas fa-chevron-right"></i></a></div>
-        <div class="card-grid" id="atsPopularGrid"><div class="section-loader"><i class="fas fa-spinner fa-spin"></i> Loading…</div></div>
-      </section>
-      <section class="section"><div class="discover"><div><div class="tag">Discover</div><h3>Not sure what to watch?</h3><p>Let us surprise you with a hand-picked anime in one tap.</p></div><button class="btn-primary" id="atsRandom"><i class="fas fa-random"></i> Random Anime</button></div></section>
+
+  <section class="hero" id="atsHero">
+    <div class="section-loader">
+      <i class="fas fa-spinner fa-spin"></i> Loading anime…
     </div>
-    <aside class="sidebar">
-      <div class="sidebar-card"><div class="sidebar-title"><i class="fas fa-fire"></i> Top 10 Anime</div><div id="atsTop10"><div class="section-loader" style="padding:20px"><i class="fas fa-spinner fa-spin"></i></div></div></div>
-      <div class="sidebar-card"><div class="sidebar-title"><i class="fas fa-tags"></i> Genres</div><div class="genre-chips" id="atsGenres"><div class="section-loader" style="padding:14px"><i class="fas fa-spinner fa-spin"></i></div></div></div>
-    </aside>
-  </div></div>
+  </section>
+
+  <div class="page-wrap">
+    <div class="main-grid">
+
+      <div class="main-col">
+
+        <section class="section">
+          <div class="section-head">
+            <h2 class="section-title"><i class="fas fa-fire"></i> Latest Updates</h2>
+          </div>
+          <div class="card-grid" id="atsLatestGrid">
+            <div class="section-loader"><i class="fas fa-spinner fa-spin"></i></div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-head">
+            <h2 class="section-title"><i class="fas fa-star"></i> Popular This Season</h2>
+          </div>
+          <div class="card-grid" id="atsPopularGrid">
+            <div class="section-loader"><i class="fas fa-spinner fa-spin"></i></div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="discover">
+            <div>
+              <div class="tag">Discover</div>
+              <h3>Not sure what to watch?</h3>
+              <p>Let us surprise you with a hand-picked anime in one tap.</p>
+            </div>
+            <button class="btn-primary" id="atsRandom">
+              <i class="fas fa-random"></i> Random Anime
+            </button>
+          </div>
+        </section>
+
+      </div>
+
+      <aside class="sidebar">
+        <div class="sidebar-card">
+          <div class="sidebar-title"><i class="fas fa-fire"></i> Top 10 Anime</div>
+          <div id="atsTop10"></div>
+        </div>
+
+        <div class="sidebar-card">
+          <div class="sidebar-title"><i class="fas fa-tags"></i> Genres</div>
+          <div class="genre-chips" id="atsGenres"></div>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+
 </main>
 
 <footer class="site-footer">
+
   <div class="footer-inner">
-    <div class="footer-col"><div class="footer-brand">AnifoxGo</div><p class="footer-disclaimer" style="text-align:left;margin-left:0">This site is an anime catalog/database. Metadata is provided by AniList. We do not host any files.</p></div>
-    <div class="footer-col"><h5>Browse</h5><a href="#">Home</a><a href="#">Trending</a><a href="#">Popular</a><a href="#">Upcoming</a></div>
-    <div class="footer-col"><h5>Info</h5><a href="#">About</a><a href="#">Contact</a><a href="#">Privacy Policy</a></div>
+
+    <div class="footer-col">
+      <div class="footer-brand">AnifoxGo</div>
+      <p class="footer-disclaimer">
+        This site is an anime catalog/database. Metadata is provided by AniList. We do not host any files.
+      </p>
+    </div>
+
+    <div class="footer-col">
+      <h5>Browse</h5>
+      <a href="index.html">Home</a>
+      <a href="#">Trending</a>
+      <a href="#">Popular</a>
+      <a href="#">Upcoming</a>
+    </div>
+
+    <div class="footer-col">
+      <h5>Info</h5>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+      <a href="#">Privacy Policy</a>
+    </div>
+
   </div>
-  <div class="footer-bottom">© 2026 AnifoxGo. All trademarks belong to their respective owners.</div>
+
+  <div class="footer-bottom">
+    © 2026 AnifoxGo. All trademarks belong to their respective owners.
+  </div>
+
 </footer>
 
-<script>window.ATS_CONFIG={siteName:'AnifoxGo',homeUrl:'#',anilistUrl:'https://graphql.anilist.co',perPage:24};</script>
+<script>
+window.ATS_CONFIG={
+  siteName:'AnifoxGo',
+  homeUrl:'https://katsuki6608.github.io/AnifoxGo/',
+  anilistUrl:'https://graphql.anilist.co',
+  perPage:24
+};
+</script>
+
 <script src="assets/js/anilist-app.js"></script>
+
 </body>
 </html>

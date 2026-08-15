@@ -247,23 +247,210 @@ input,select{font-family:inherit}
 .pager a:hover,.pager button:hover{background:var(--hero-grad);color:#fff;border-color:transparent}
 
 @media(max-width:768px){
-  .navbar{padding:0 14px;gap:12px}
-  .nav-search{display:none}
-  .nav-links{display:none}
-  .nav-tabs{display:none}
-  .nav-lang{display:none}
-  .nav-shuffle{display:none}
-  .nav-logo .logo-txt{font-size:17px}
-  .page-wrap{padding:0 14px}
-  .hero{height:440px}
-  .hero-desc{-webkit-line-clamp:2}
-  .card-grid{grid-template-columns:repeat(auto-fill,minmax(115px,1fr));gap:12px}
-  .site-footer{padding:26px 16px}
+
+  /* =========================
+     MOBILE NAVBAR
+     ========================= */
+
+  :root{
+    --nav-height:138px;
+  }
+
+  .navbar{
+    height:auto;
+    min-height:138px;
+    padding:10px 14px 8px;
+    gap:0;
+    display:flex;
+    flex-wrap:wrap;
+    align-content:flex-start;
+    align-items:center;
+    overflow:hidden;
+  }
+
+  /* Top row */
+
+  .nav-hamburger{
+    width:40px;
+    height:40px;
+    flex:0 0 40px;
+    font-size:18px;
+  }
+
+  .nav-logo{
+    flex:0 0 auto;
+    margin-left:4px;
+    margin-right:10px;
+  }
+
+  .nav-logo .logo-txt{
+    font-size:18px;
+  }
+
+  .nav-search{
+    display:flex;
+    flex:1 1 120px;
+    width:auto;
+    min-width:0;
+    max-width:none;
+    height:40px;
+    margin:0;
+    border-radius:8px;
+  }
+
+  .nav-search input{
+    min-width:0;
+    padding:9px 38px 9px 12px;
+    font-size:12px;
+  }
+
+  .nav-search-btn{
+    right:4px;
+    width:32px;
+    height:32px;
+  }
+
+  .nav-shuffle{
+    display:inline-flex;
+    width:40px;
+    height:40px;
+    flex:0 0 40px;
+    margin-left:8px;
+    font-size:14px;
+  }
+
+  /* Home / Trending / Popular / Upcoming */
+
+  .nav-links{
+    display:flex;
+    order:10;
+    width:100%;
+    flex:0 0 100%;
+    margin-top:8px;
+    gap:0;
+    justify-content:flex-start;
+    overflow-x:auto;
+    overflow-y:hidden;
+    scrollbar-width:none;
+    padding:0 2px;
+  }
+
+  .nav-links::-webkit-scrollbar{
+    display:none;
+  }
+
+  .nav-links a{
+    flex:0 0 auto;
+    padding:7px 12px;
+    font-size:11px;
+    white-space:nowrap;
+    flex-direction:row;
+    gap:5px;
+  }
+
+  .nav-links a i{
+    font-size:11px;
+  }
+
+  /* Anime / Movies / Manga */
+
+  .nav-tabs{
+    display:flex;
+    order:11;
+    width:100%;
+    flex:0 0 100%;
+    margin-top:4px;
+    padding:2px;
+    gap:4px;
+    background:transparent;
+    overflow-x:auto;
+    overflow-y:hidden;
+    scrollbar-width:none;
+  }
+
+  .nav-tabs::-webkit-scrollbar{
+    display:none;
+  }
+
+  .nav-tab{
+    flex:0 0 auto;
+    padding:6px 13px;
+    font-size:11px;
+    white-space:nowrap;
+  }
+
+  /* Hide extras only */
+
+  .nav-lang{
+    display:none;
+  }
+
+  .nav-social,
+  .nav-join,
+  .nav-login{
+    display:none;
+  }
+
+  /* Page */
+
+  .page-wrap{
+    padding:0 14px;
+  }
+
+  .hero{
+    height:440px;
+  }
+
+  .hero-desc{
+    -webkit-line-clamp:2;
+  }
+
+  .card-grid{
+    grid-template-columns:repeat(auto-fill,minmax(115px,1fr));
+    gap:12px;
+  }
+
+  .site-footer{
+    padding:26px 16px;
+  }
 }
+
 @media(max-width:480px){
-  .card-grid{grid-template-columns:repeat(3,1fr);gap:10px}
-  .anime-card-title{font-size:11px}
-  .hero-title{font-size:22px}
+
+  .nav-logo .logo-txt{
+    font-size:17px;
+  }
+
+  .nav-search{
+    flex-basis:100px;
+  }
+
+  .nav-search input{
+    font-size:11px;
+  }
+
+  .nav-links a{
+    padding:6px 10px;
+    font-size:10px;
+  }
+
+  .nav-tabs .nav-tab{
+    padding:6px 11px;
+    font-size:10.5px;
+  }
+
+  .card-grid{
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
+  }
+
+  .anime-card-title{
+    font-size:11px;
+  }
+
+  .hero-title{
+    font-size:22px;
+  }
 }
 
 /* ============================================================

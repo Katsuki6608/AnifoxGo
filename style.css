@@ -247,18 +247,196 @@ input,select{font-family:inherit}
 .pager a:hover,.pager button:hover{background:var(--hero-grad);color:#fff;border-color:transparent}
 
 @media(max-width:768px){
-  .navbar{padding:0 14px;gap:12px}
-  .nav-search{display:none}
-  .nav-links{display:none}
-  .nav-tabs{display:none}
-  .nav-lang{display:none}
-  .nav-shuffle{display:none}
-  .nav-logo .logo-txt{font-size:17px}
-  .page-wrap{padding:0 14px}
-  .hero{height:440px}
-  .hero-desc{-webkit-line-clamp:2}
-  .card-grid{grid-template-columns:repeat(auto-fill,minmax(115px,1fr));gap:12px}
-  .site-footer{padding:26px 16px}
+
+  /* =========================
+     MOBILE NAVBAR
+     ========================= */
+
+  .navbar{
+    height:104px;
+    padding:7px 10px;
+    gap:7px;
+    flex-wrap:wrap;
+    overflow:hidden;
+    align-content:center;
+  }
+
+  /* Hamburger */
+  .nav-hamburger{
+    width:36px;
+    height:36px;
+    font-size:17px;
+    flex-shrink:0;
+  }
+
+  /* Logo */
+  .nav-logo{
+    font-size:17px;
+    flex-shrink:0;
+  }
+
+  .nav-logo .logo-txt{
+    font-size:17px;
+  }
+
+  /* Search */
+  .nav-search{
+    display:flex;
+    flex:1;
+    width:auto;
+    min-width:90px;
+    max-width:none;
+    height:34px;
+    margin:0;
+    border-radius:6px;
+  }
+
+  .nav-search input{
+    font-size:11px;
+    padding:7px 32px 7px 9px;
+  }
+
+  .nav-search-btn{
+    right:3px;
+    width:28px;
+    height:28px;
+  }
+
+  /* Shuffle */
+  .nav-shuffle{
+    display:inline-flex;
+    width:34px;
+    height:34px;
+    font-size:13px;
+    flex-shrink:0;
+  }
+
+  /* Home / Trending / Popular / Upcoming */
+  .nav-links{
+    display:flex;
+    order:10;
+    width:max-content;
+    max-width:100%;
+    gap:5px;
+    overflow-x:auto;
+    flex-shrink:0;
+    scrollbar-width:none;
+  }
+
+  .nav-links::-webkit-scrollbar{
+    display:none;
+  }
+
+  .nav-links a{
+    font-size:9px;
+    padding:5px 7px;
+    white-space:nowrap;
+  }
+
+  .nav-links a i{
+    font-size:11px;
+  }
+
+  /* Anime / Movies / Manga */
+  .nav-tabs{
+    display:flex;
+    order:11;
+    gap:3px;
+    padding:3px;
+    flex-shrink:0;
+    overflow-x:auto;
+    scrollbar-width:none;
+  }
+
+  .nav-tabs::-webkit-scrollbar{
+    display:none;
+  }
+
+  .nav-tab{
+    padding:5px 8px;
+    font-size:9px;
+    white-space:nowrap;
+  }
+
+  .nav-tab i{
+    font-size:9px;
+  }
+
+  /* Hide unused elements */
+  .nav-lang,
+  .nav-social,
+  .nav-join,
+  .nav-login{
+    display:none;
+  }
+
+  /* Page */
+  .page-wrap{
+    padding:0 14px;
+  }
+
+  .hero{
+    height:440px;
+  }
+
+  .hero-desc{
+    -webkit-line-clamp:2;
+  }
+
+  .card-grid{
+    grid-template-columns:repeat(auto-fill,minmax(115px,1fr));
+    gap:12px;
+  }
+
+  .site-footer{
+    padding:26px 16px;
+  }
+}
+
+@media(max-width:480px){
+
+  .navbar{
+    height:104px;
+  }
+
+  .nav-logo .logo-txt{
+    font-size:16px;
+  }
+
+  .nav-search{
+    min-width:80px;
+  }
+
+  .nav-search input{
+    font-size:10px;
+  }
+
+  .nav-links{
+    gap:3px;
+  }
+
+  .nav-links a{
+    font-size:8.5px;
+    padding:5px 6px;
+  }
+
+  .nav-tab{
+    font-size:8.5px;
+    padding:5px 7px;
+  }
+
+  .card-grid{
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
+  }
+
+  .anime-card-title{
+    font-size:11px;
+  }
+
+  .hero-title{
+    font-size:22px;
+  }
 }
 @media(max-width:480px){
   .card-grid{grid-template-columns:repeat(3,1fr);gap:10px}

@@ -253,12 +253,13 @@ input,select{font-family:inherit}
      ========================= */
 
   .navbar{
-    height:104px;
-    padding:7px 10px;
-    gap:7px;
-    flex-wrap:wrap;
-    overflow:hidden;
-    align-content:center;
+  height:150px;
+  padding:7px 10px;
+  gap:7px;
+  flex-wrap:wrap;
+  overflow:visible;
+  align-content:flex-start;
+  position:relative;
   }
 
   /* Hamburger */

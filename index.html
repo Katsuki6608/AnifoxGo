@@ -2,40 +2,23 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Discover anime with a modern AniList-powered catalogue.">
-  <title>Kitsu - Anime discovery</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="AniList-powered anime catalogue and episode directory.">
+  <title>Hoshi - Anime catalogue</title>
+  <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-  <header class="site-header">
-    <a class="brand" href="/" aria-label="Kitsu home"><span>K</span>itsu</a>
-    <button class="icon-button mobile-menu" id="menuButton" aria-label="Open navigation">☰</button>
-    <nav class="main-nav" id="mainNav">
-      <a class="active" href="/">Home</a><a href="/#trending">Trending</a><a href="/#latest">Latest</a><a href="/#popular">Most Popular</a>
-    </nav>
-    <form class="header-search" id="searchForm">
-      <input id="searchInput" type="search" placeholder="Search anime..." autocomplete="off">
-      <button aria-label="Search">⌕</button>
-    </form>
-    <button class="random-button" id="randomButton">Random <span>↗</span></button>
+  <header class="topbar">
+    <button class="menu-button" id="menuButton" aria-label="Open browse menu">☰</button>
+    <a class="logo" href="/home" aria-label="Hoshi home">ho<span>shi</span></a>
+    <form class="top-search" id="searchForm"><input id="searchInput" type="search" placeholder="Search anime..." autocomplete="off"><button aria-label="Search">⌕</button></form>
+    <nav class="quick-nav"><a href="/home">Home</a><a href="/home#trending">Trending</a><a href="/home#latest">Latest</a><a href="/home#popular">Most Popular</a></nav>
+    <button class="random-button" id="randomButton">Random</button>
   </header>
-
-  <main id="app"><div class="page-loading">Loading AniList catalogue...</div></main>
-
-  <div class="search-layer" id="searchLayer" aria-hidden="true">
-    <div class="search-dialog" role="dialog" aria-modal="true" aria-label="Search anime">
-      <button class="dialog-close" id="closeSearch" aria-label="Close search">×</button>
-      <p class="eyebrow">FIND YOUR NEXT FAVORITE</p><h2>Search anime</h2>
-      <form class="dialog-search" id="dialogSearchForm"><input id="dialogSearchInput" type="search" placeholder="Type a title, e.g. Frieren" autofocus><button>Search</button></form>
-      <div class="search-results" id="searchResults"><p>Start typing to search AniList's catalogue.</p></div>
-    </div>
-  </div>
-
-  <footer><a class="brand" href="/"><span>K</span>itsu</a><p>An anime discovery interface powered by public AniList metadata. No video is hosted here.</p><div><a href="/">Home</a><a href="/#trending">Trending</a><a href="/#latest">Latest</a><a href="/#popular">Popular</a></div></footer>
-  <script src="assets/js/app.js"></script>
+  <aside class="drawer" id="drawer"><button class="drawer-close" id="closeDrawer">← Close menu</button><p>Browse</p><a href="/home">Home</a><a href="/home#trending">Trending</a><a href="/home#latest">Latest episodes</a><a href="/home#popular">Most popular</a><p>Genres</p><div id="drawerGenres" class="drawer-genres"></div></aside><div class="drawer-shade" id="drawerShade"></div>
+  <main id="app"><div class="loading">Loading catalogue...</div></main>
+  <div class="search-overlay" id="searchOverlay" aria-hidden="true"><div class="search-sheet" role="dialog" aria-modal="true" aria-label="Search anime"><button id="closeSearch" aria-label="Close search">×</button><p class="kicker">ANILIST CATALOGUE</p><h2>Search anime</h2><form id="modalSearchForm"><input id="modalSearchInput" type="search" placeholder="Search a title"><button>Search</button></form><div id="searchResults" class="result-grid"></div></div></div>
+  <footer><a class="logo" href="/home">ho<span>shi</span></a><p>Anime metadata, characters, and an editable episode directory powered by AniList. No media is hosted or played.</p><div><a href="/home">Home</a><a href="/home#trending">Trending</a><a href="/home#latest">Latest</a><a href="/home#popular">Popular</a></div></footer>
+  <script src="/assets/js/app.js"></script>
 </body>
 </html>

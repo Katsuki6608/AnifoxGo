@@ -7,7 +7,7 @@ services:
       - .:/workspace:ro
     environment:
       IS_ALLOY: ${IS_ALLOY:-false}
-    command: python -m http.server 3000 --bind 0.0.0.0
+    command: python server.py
     healthcheck:
       test: ["CMD", "wget", "--quiet", "--spider", "http://127.0.0.1:3000/"]
       interval: 5s

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Discover anime with a modern AniList-powered catalogue.">
-  <title>Kitsu - Anime streaming discovery</title>
+  <title>Kitsu - Anime discovery</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
@@ -12,10 +12,10 @@
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="#top" aria-label="Kitsu home"><span>K</span>itsu</a>
+    <a class="brand" href="/" aria-label="Kitsu home"><span>K</span>itsu</a>
     <button class="icon-button mobile-menu" id="menuButton" aria-label="Open navigation">☰</button>
     <nav class="main-nav" id="mainNav">
-      <a class="active" href="#top">Home</a><a href="#trending">Trending</a><a href="#latest">Latest</a><a href="#popular">Most Popular</a>
+      <a class="active" href="/">Home</a><a href="/#trending">Trending</a><a href="/#latest">Latest</a><a href="/#popular">Most Popular</a>
     </nav>
     <form class="header-search" id="searchForm">
       <input id="searchInput" type="search" placeholder="Search anime..." autocomplete="off">
@@ -24,28 +24,7 @@
     <button class="random-button" id="randomButton">Random <span>↗</span></button>
   </header>
 
-  <main id="top">
-    <section class="hero" id="hero" aria-label="Featured anime"><div class="hero-loading">Loading spotlight...</div></section>
-
-    <section class="content-section trend-section" id="trending">
-      <div class="section-heading"><div><p class="eyebrow">WHAT THE COMMUNITY IS WATCHING</p><h2>Trending now</h2></div><div class="rail-actions"><button class="rail-button" data-rail="trendingRail" data-direction="-1" aria-label="Previous">←</button><button class="rail-button" data-rail="trendingRail" data-direction="1" aria-label="Next">→</button></div></div>
-      <div class="poster-rail" id="trendingRail"></div>
-    </section>
-
-    <section class="catalog-layout">
-      <div>
-        <section class="content-section" id="latest">
-          <div class="section-heading"><div><p class="eyebrow">JUST RELEASED</p><h2>Latest episodes</h2></div><button class="text-button" data-filter="RELEASING">View all <span>→</span></button></div>
-          <div class="anime-grid" id="latestGrid"></div>
-        </section>
-        <section class="content-section" id="popular">
-          <div class="section-heading"><div><p class="eyebrow">ALL-TIME FAVORITES</p><h2>Most popular</h2></div><button class="text-button" data-filter="POPULARITY_DESC">View all <span>→</span></button></div>
-          <div class="anime-grid" id="popularGrid"></div>
-        </section>
-      </div>
-      <aside class="airing-panel"><div class="aside-heading"><p class="eyebrow">LIVE SCHEDULE</p><h2>Top airing</h2></div><div id="airingList"></div><button class="full-list" data-filter="RELEASING">Browse airing anime <span>→</span></button></aside>
-    </section>
-  </main>
+  <main id="app"><div class="page-loading">Loading AniList catalogue...</div></main>
 
   <div class="search-layer" id="searchLayer" aria-hidden="true">
     <div class="search-dialog" role="dialog" aria-modal="true" aria-label="Search anime">
@@ -56,7 +35,7 @@
     </div>
   </div>
 
-  <footer><a class="brand" href="#top"><span>K</span>itsu</a><p>An anime discovery interface powered by public AniList metadata. No video is hosted here.</p><div><a href="#top">Home</a><a href="#trending">Trending</a><a href="#latest">Latest</a><a href="#popular">Popular</a></div></footer>
+  <footer><a class="brand" href="/"><span>K</span>itsu</a><p>An anime discovery interface powered by public AniList metadata. No video is hosted here.</p><div><a href="/">Home</a><a href="/#trending">Trending</a><a href="/#latest">Latest</a><a href="/#popular">Popular</a></div></footer>
   <script src="assets/js/app.js"></script>
 </body>
 </html>
